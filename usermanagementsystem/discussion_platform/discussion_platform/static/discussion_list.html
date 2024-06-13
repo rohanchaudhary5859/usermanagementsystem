@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion Platform</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Discussion Platform</h1>
+        <div class="discussion-list">
+            {% for discussion in discussions %}
+            <div class="discussion-item">
+                <h2>{{ discussion.text }}</h2>
+                {% if discussion.image %}
+                <img src="{{ discussion.image.url }}" alt="Discussion Image">
+                {% endif %}
+                <p>Created on: {{ discussion.created_on }}</p>
+            </div>
+            {% empty %}
+            <p>No discussions found.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

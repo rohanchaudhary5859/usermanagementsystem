@@ -1,0 +1,22 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}Users{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Users</h1>
+    <div class="user-list">
+        {% for user in users %}
+        <div class="user-item">
+            <h2>{{ user.username }}</h2>
+            <p>Email: {{ user.email }}</p>
+            <p>Mobile No: {{ user.mobile_no }}</p>
+        </div>
+        {% empty %}
+        <p>No users found.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

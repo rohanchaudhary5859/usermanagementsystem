@@ -1,0 +1,24 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}Discussions{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Discussions</h1>
+    <div class="discussion-list">
+        {% for discussion in discussions %}
+        <div class="discussion-item">
+            <h2>{{ discussion.text }}</h2>
+            {% if discussion.image %}
+            <img src="{{ discussion.image.url }}" alt="Discussion Image">
+            {% endif %}
+            <p>Created on: {{ discussion.created_on }}</p>
+        </div>
+        {% empty %}
+        <p>No discussions found.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

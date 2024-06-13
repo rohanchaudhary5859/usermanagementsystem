@@ -1,0 +1,18 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}Discussion Detail{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Discussion Detail</h1>
+    <div class="discussion-detail">
+        <h2>{{ discussion.text }}</h2>
+        {% if discussion.image %}
+        <img src="{{ discussion.image.url }}" alt="Discussion Image">
+        {% endif %}
+        <p>Created on: {{ discussion.created_on }}</p>
+    </div>
+</div>
+{% endblock %}
